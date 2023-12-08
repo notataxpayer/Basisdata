@@ -12,13 +12,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Invoice">
    <children>
-      <MenuBar fx:id="mbinvoice">
+      <MenuBar fx:id="Invoice_Menu">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu fx:id="File_Menu" mnemonicParsing="false" onAction="#File_Btn" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="Menu_Employee" mnemonicParsing="false" onAction="#Switch_Employee" text="Employee" />
+                  <MenuItem fx:id="Menu_Shipment" mnemonicParsing="false" onAction="#Switch_Shipment" text="Shipment" />
             </items>
           </Menu>
         </menus>
@@ -50,24 +51,25 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblsearch" layoutX="497.0" layoutY="34.0" text="Search" />
-            <TextField fx:id="tfidinvoice" layoutX="151.0" layoutY="81.0" />
-            <TextField fx:id="tfidshipment" layoutX="151.0" layoutY="130.0" />
-            <TextField fx:id="tfidpelanggan" layoutX="151.0" layoutY="184.0" />
-            <TextField fx:id="tfjumlahharga" layoutX="151.0" layoutY="233.0" />
-            <TextField fx:id="tfsearch" layoutX="545.0" layoutY="29.0" prefHeight="26.0" prefWidth="106.0" />
-            <Button fx:id="tffind" layoutX="659.0" layoutY="30.0" mnemonicParsing="false" onAction="#Find" text="Find" />
-            <Button fx:id="btnadd" layoutX="465.0" layoutY="302.0" mnemonicParsing="false" onAction="#Add" text="Add" />
-            <Button fx:id="btnupdate" layoutX="510.0" layoutY="302.0" mnemonicParsing="false" onAction="#Update" text="Update" />
-            <Button fx:id="btndelete" layoutX="573.0" layoutY="302.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
-            <TableView fx:id="tvinvoice" layoutX="377.0" layoutY="69.0" prefHeight="218.0" prefWidth="338.0">
+            <Label fx:id="lblsearch" layoutX="457.0" layoutY="34.0" text="Search" />
+            <TextField fx:id="IDInvoice_Field" layoutX="151.0" layoutY="81.0" />
+            <TextField fx:id="IDShipment_Field" layoutX="151.0" layoutY="130.0" />
+            <TextField fx:id="IDPelanggan_Field" layoutX="151.0" layoutY="184.0" />
+            <TextField fx:id="Harga_Field" layoutX="151.0" layoutY="233.0" />
+            <TextField fx:id="Search_Field" layoutX="505.0" layoutY="29.0" prefHeight="26.0" prefWidth="106.0" />
+            <Button fx:id="Find_Button" layoutX="619.0" layoutY="30.0" mnemonicParsing="false" onAction="#Find_Btn" text="Find" />
+            <Button fx:id="Add_button" layoutX="465.0" layoutY="302.0" mnemonicParsing="false" onAction="#Add_Btn" text="Add" />
+            <Button fx:id="Update_Button" layoutX="510.0" layoutY="302.0" mnemonicParsing="false" onAction="#Update_Btn" text="Update" />
+            <Button fx:id="Delete_Button" layoutX="573.0" layoutY="302.0" mnemonicParsing="false" onAction="#Delete_Btn" text="Delete" />
+            <TableView fx:id="Invoice_Table" layoutX="377.0" layoutY="69.0" prefHeight="218.0" prefWidth="338.0">
               <columns>
-                <TableColumn fx:id="tcidinvoice" prefWidth="75.0" text="ID Invoice" />
-                <TableColumn fx:id="icidshipment" prefWidth="75.0" text="ID Shipment" />
-                  <TableColumn fx:id="tcidpelanggan" prefWidth="82.4000244140625" text="ID Pelanggan" />
-                  <TableColumn fx:id="tcjumlahharga" prefWidth="104.00003662109373" text="Jumlah Harga" />
+                <TableColumn fx:id="IDInvoice_Column" prefWidth="75.0" text="ID Invoice" />
+                <TableColumn fx:id="IDShipment_Column" prefWidth="75.0" text="ID Shipment" />
+                  <TableColumn fx:id="IDPelanggan_Column" prefWidth="82.4000244140625" text="ID Pelanggan" />
+                  <TableColumn fx:id="Harga_Column" prefWidth="104.00003662109373" text="Jumlah Harga" />
               </columns>
             </TableView>
+            <Button fx:id="Refresh_Button" layoutX="665.0" layoutY="30.0" mnemonicParsing="false" onAction="#Refresh_Btn" text="Refresh" />
          </children>
       </AnchorPane>
    </children>

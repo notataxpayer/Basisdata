@@ -54,6 +54,7 @@
                   <MenuItem fx:id="Employee" mnemonicParsing="false" onAction="#Switch_Employee" text="Employee" />
                   <MenuItem fx:id="Shipment" mnemonicParsing="false" onAction="#Switch_Shipment" text="Shipment" />
                   <MenuItem fx:id="Customer" mnemonicParsing="false" onAction="#Switch_Customer" text="Customer" />
+                  <MenuItem fx:id="Paket" mnemonicParsing="false" onAction="#Switch_Paket" text="Paket" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="Login" mnemonicParsing="false" onAction="#Swtich_Login" text="Logout" />
                </items>

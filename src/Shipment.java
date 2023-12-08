@@ -87,15 +87,13 @@ public class Shipment implements Initializable {
                     preparedStatementServisDetail.setString(1, id);
                     preparedStatementServisDetail.executeUpdate();
                 }
-                // Commit transaksi jika berhasil
-                connection.commit();
+                // connection.commit();
                 System.out.println("Data berhasil dihapus.");
             } catch (SQLException e) {
-                // Rollback transaksi jika terjadi kesalahan
-                connection.rollback();
+                // connection.rollback();
                 e.printStackTrace();
             } finally {
-                // Kembalikan otomatis commit ke kondisi awal
+
                 connection.setAutoCommit(true);
             }
         } catch (SQLException e) {
@@ -148,6 +146,9 @@ public class Shipment implements Initializable {
     @FXML
     private TableColumn<ShipData, String> Tanggal_Collum;
 
+    @FXML
+    private MenuItem Paket;
+    
     @FXML
     private TextField Tanggal_F;
 
@@ -213,6 +214,19 @@ public class Shipment implements Initializable {
         clearFields();
     }
 
+     @FXML
+    void Switch_Paket(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Paket.fxml"));
+        Parent root = loader.load();
+
+        // Menggunakan MenuItem untuk mendapatkan Stage
+        Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @FXML
     void DelBtn(ActionEvent event) {
         int index = Data_Table.getSelectionModel().getSelectedIndex();
@@ -267,10 +281,12 @@ public class Shipment implements Initializable {
     @FXML
     void Switch_Employee(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Karyawan.fxml"));
-        root = loader.load();
-        // root = FXMLLoader.load(getClass().getResource("Karyawan.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Parent root = loader.load();
+
+        // Menggunakan MenuItem untuk mendapatkan Stage
+        Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

@@ -54,6 +54,8 @@
                   <MenuItem fx:id="Menu_Employee" mnemonicParsing="false" text="Employee" />
                   <MenuItem fx:id="Menu_Shipment" mnemonicParsing="false" onAction="#Switch_Sipment" text="Shipment" />
                   <MenuItem fx:id="Menu_Customer" mnemonicParsing="false" onAction="#Swtich_Customer" text="Customer" />
+                  <MenuItem fx:id="Invoice" mnemonicParsing="false" onAction="#Switch_Invoice" text="Invoice" />
+                  <MenuItem fx:id="Menu_Payment" mnemonicParsing="false" onAction="#Switch_Payment" text="Pembayaran" />
                   <MenuItem fx:id="Menu_Employee1" mnemonicParsing="false" onAction="#Switch_Paket" text="Paket" />
                   <SeparatorMenuItem fx:id="Seperator_Menu" mnemonicParsing="false" />
                   <MenuItem fx:id="Menu_Logout" mnemonicParsing="false" text="Logout" />

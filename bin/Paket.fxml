@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -14,14 +15,19 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Paket">
    <children>
-      <MenuBar fx:id="mbpaket">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-        </menus>
+      <MenuBar fx:id="Menu_Bar">
+         <menus>
+            <Menu fx:id="Menu_File" mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="Menu_Employee" mnemonicParsing="false" onAction="#Switch_Employee" text="Employee" />
+                  <MenuItem fx:id="Menu_Shipment" mnemonicParsing="false" onAction="#Switch_Sipment" text="Shipment" />
+                  <MenuItem fx:id="Menu_Customer" mnemonicParsing="false" onAction="#Swtich_Customer" text="Customer" />
+                  <MenuItem fx:id="Menu_Customer1" mnemonicParsing="false" onAction="#Swtich_Customer" text="Payment" />
+                  <SeparatorMenuItem fx:id="Seperator_Menu" mnemonicParsing="false" />
+                  <MenuItem fx:id="Menu_Logout" mnemonicParsing="false" onAction="#Switch_Logout" text="Logout" />
+               </items>
+            </Menu>
+         </menus>
       </MenuBar>
       <AnchorPane fx:id="appaket" prefHeight="408.0" prefWidth="600.0">
          <children>
@@ -50,16 +56,16 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblsearch" layoutX="355.0" layoutY="29.0" text="Search" />
+            <Label fx:id="lblsearch" layoutX="398.0" layoutY="30.0" text="Search" />
             <TextField fx:id="tfid" layoutX="131.0" layoutY="73.0" />
             <TextField fx:id="tfdeskripsi" layoutX="131.0" layoutY="112.0" />
             <TextField fx:id="tfnilai" layoutX="131.0" layoutY="151.0" />
             <TextField fx:id="tfdimensi" layoutX="131.0" layoutY="194.0" />
-            <TextField fx:id="tfsearch" layoutX="418.0" layoutY="24.0" prefHeight="26.0" prefWidth="135.0" />
-            <Button fx:id="btnfind" layoutX="568.0" layoutY="25.0" mnemonicParsing="false" onAction="#Find_Btn" text="Find" />
-            <Button fx:id="btndelete" layoutX="517.0" layoutY="309.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
-            <Button fx:id="btnupdate" layoutX="447.0" layoutY="309.0" mnemonicParsing="false" onAction="#Update" text="Update" />
-            <Button fx:id="btnadd" layoutX="393.0" layoutY="309.0" mnemonicParsing="false" onAction="#Add" text="Add" />
+            <TextField fx:id="tfsearch" layoutX="461.0" layoutY="25.0" prefHeight="26.0" prefWidth="135.0" />
+            <Button fx:id="btnfind" layoutX="611.0" layoutY="26.0" mnemonicParsing="false" onAction="#Find_Btn" text="Find" />
+            <Button fx:id="btndelete" layoutX="588.0" layoutY="304.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+            <Button fx:id="btnupdate" layoutX="518.0" layoutY="304.0" mnemonicParsing="false" onAction="#Update" text="Update" />
+            <Button fx:id="btnadd" layoutX="464.0" layoutY="304.0" mnemonicParsing="false" onAction="#Add" text="Add" />
             <TableView fx:id="tvpaket" layoutX="355.0" layoutY="94.0" prefHeight="200.0" prefWidth="393.0">
               <columns>
                 <TableColumn fx:id="tcid" prefWidth="66.0" text="ID" />
@@ -68,7 +74,7 @@
                   <TableColumn fx:id="tcdimensi" prefWidth="115.0" text="Dimensi" />
               </columns>
             </TableView>
-            <Button fx:id="Refresh" layoutX="629.0" layoutY="25.0" mnemonicParsing="false" onAction="#Refresh_Btn" text="Find" />
+            <Button fx:id="Refresh" layoutX="672.0" layoutY="26.0" mnemonicParsing="false" onAction="#Refresh_Btn" text="Refresh" />
          </children>
       </AnchorPane>
       <TextField />

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -12,16 +13,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pembayaran">
    <children>
-      <MenuBar fx:id="mbpembayaran">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-        </menus>
+      <MenuBar fx:id="Menu_Bar">
+         <menus>
+            <Menu fx:id="Menu_File" mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="Menu_Employee" mnemonicParsing="false" onAction="#Switch_Employee" text="Employee" />
+                  <MenuItem fx:id="Menu_Shipment" mnemonicParsing="false" onAction="#Switch_Sipment" text="Shipment" />
+                  <MenuItem fx:id="Menu_Customer" mnemonicParsing="false" onAction="#Swtich_Customer" text="Customer" />
+                  <MenuItem fx:id="Menu_Employee1" mnemonicParsing="false" onAction="#Switch_Paket" text="Paket" />
+                  <SeparatorMenuItem fx:id="Seperator_Menu" mnemonicParsing="false" />
+                  <MenuItem fx:id="Menu_Logout" mnemonicParsing="false" onAction="#Switch_Logout" text="Logout" />
+               </items>
+            </Menu>
+         </menus>
       </MenuBar>
       <AnchorPane fx:id="appembayaran" prefHeight="423.0" prefWidth="600.0">
          <children>
@@ -38,25 +44,33 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lblidpelanggan" layoutX="38.0" layoutY="201.0" text="ID Pelanggan">
+            <Label fx:id="lblidpelanggan" layoutX="38.0" layoutY="201.0" text="Payment Date">
                <font>
                   <Font size="14.0" />
                </font></Label>
             <TextField fx:id="tfidpembayaran" layoutX="150.0" layoutY="82.0" />
             <TextField fx:id="tfidinvoice" layoutX="150.0" layoutY="140.0" />
-            <TextField fx:id="tfidpelanggan" layoutX="150.0" layoutY="198.0" prefHeight="26.0" prefWidth="154.0" />
+            <TextField fx:id="tfDate" layoutX="150.0" layoutY="198.0" prefHeight="26.0" prefWidth="154.0" promptText="mm/dd/yyyy" />
             <TextField fx:id="tfsearch" layoutX="486.0" layoutY="33.0" prefHeight="26.0" prefWidth="128.0" />
             <Button fx:id="btnfind" layoutX="630.0" layoutY="33.0" mnemonicParsing="false" onAction="#Find" text="Find" />
-            <TableView fx:id="tvpembayaran" layoutX="377.0" layoutY="76.0" prefHeight="200.0" prefWidth="294.0">
+            <TableView fx:id="tvpembayaran" layoutX="377.0" layoutY="76.0" prefHeight="200.0" prefWidth="412.0">
               <columns>
-                <TableColumn fx:id="tcidpembayaran" prefWidth="112.800048828125" text="ID Pembayaran" />
-                <TableColumn fx:id="tcidinvoice" prefWidth="75.99993896484375" text="ID Invoice" />
-                  <TableColumn fx:id="tcidpelanggan" prefWidth="104.79998779296875" text="ID Pelanggan" />
+                <TableColumn fx:id="tcidpembayaran" prefWidth="100.0" text="ID Pembayaran" />
+                <TableColumn fx:id="tcidinvoice" prefWidth="89.0" text="ID Invoice" />
+                  <TableColumn fx:id="tcDate" prefWidth="120.0" text="Payment Date" />
+                  <TableColumn fx:id="tcAmount" prefWidth="101.0" text="Amount" />
               </columns>
             </TableView>
-            <Button fx:id="btnadd" layoutX="442.0" layoutY="283.0" mnemonicParsing="false" onAction="#Add" text="Add" />
-            <Button fx:id="btnupdate" layoutX="490.0" layoutY="283.0" mnemonicParsing="false" onAction="#Update" text="Update" />
-            <Button fx:id="btndelete" layoutX="556.0" layoutY="283.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+            <Button fx:id="btnadd" layoutX="532.0" layoutY="286.0" mnemonicParsing="false" onAction="#Add" text="Add" />
+            <Button fx:id="btnupdate" layoutX="580.0" layoutY="286.0" mnemonicParsing="false" onAction="#Update" text="Update" />
+            <Button fx:id="btndelete" layoutX="646.0" layoutY="286.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+            <Label fx:id="lblidpelanggan1" layoutX="38.0" layoutY="266.0" text="Amount">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfAmount" layoutX="150.0" layoutY="263.0" prefHeight="26.0" prefWidth="154.0" />
+            <Button fx:id="Refresh" layoutX="681.0" layoutY="34.0" mnemonicParsing="false" onAction="#Refresh" text="Refresh" />
          </children>
       </AnchorPane>
    </children>

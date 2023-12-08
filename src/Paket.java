@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,13 +10,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -41,6 +46,22 @@ public class Paket implements Initializable {
         tcdimensi.setCellValueFactory(new PropertyValueFactory<PaketData, String>("Dimensi"));
         // TanggalRekrut_Column.setCellValueFactory(new PropertyValueFactory<PaketData, String>("Tanggal_perekrutan"));
         tvpaket.setItems(listTemp);
+
+        tvpaket.setOnMouseClicked(event -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                // Get the selected row data
+                PaketData selectedEmployee = tvpaket.getSelectionModel().getSelectedItem();
+
+                if (selectedEmployee != null) {
+                    // Set the data to the input fields for editing
+                    tfid.setText(String.valueOf(selectedEmployee.getID()));
+                    tfdeskripsi.setText(selectedEmployee.getDeskripsi());
+                    tfnilai.setText(String.valueOf(selectedEmployee.getNilai()));
+                    tfdimensi.setText(selectedEmployee.getDimensi());
+                    // tanggalMasuk_Field.setText(selectedEmployee.getTanggal_perekrutan());
+                }
+            }
+        });
     }
     @FXML
     private Button Refresh;
@@ -109,7 +130,73 @@ public class Paket implements Initializable {
     private TextField tfsearch;
 
     @FXML
+    private MenuItem Menu_Shipment;
+
+    @FXML
+    private MenuItem Menu_Logout;
+
+    @FXML
+    private MenuItem Menu_Employee;
+
+    @FXML
+    private MenuItem Menu_Customer;
+
+    @FXML
+    private Menu Menu_File;
+
+    @FXML
     private TableView<PaketData> tvpaket;
+
+     @FXML
+    void Switch_Employee(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Karyawan.fxml"));
+        root = loader.load();
+        // root = FXMLLoader.load(getClass().getResource("Karyawan.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void Switch_Sipment(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Shipment.fxml"));
+        Parent root = loader.load();
+
+        // Menggunakan MenuItem untuk mendapatkan Stage
+        Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    
+    @FXML
+    void Switch_Logout(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+        Parent root = loader.load();
+
+        // Menggunakan MenuItem untuk mendapatkan Stage
+        Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void Swtich_Customer(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Customer.fxml"));
+        Parent root = loader.load();
+
+        // Menggunakan MenuItem untuk mendapatkan Stage
+        Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     void Add(ActionEvent event) throws SQLException {
@@ -175,12 +262,27 @@ public class Paket implements Initializable {
 
     @FXML
     void Refresh_Btn(ActionEvent event) {
-
+        refreshTable();
+        clearFields();
     }
 
     @FXML
     void Update(ActionEvent event) {
+        PaketData selectedEmployee = tvpaket.getSelectionModel().getSelectedItem();
 
+        if (selectedEmployee == null) {
+            showWarning("Warning", "Please select a row for editing.");
+            return;
+        }
+        selectedEmployee.setID(Integer.parseInt(tfid.getText()));
+        selectedEmployee.setDeskripsi(tfdeskripsi.getText());
+        selectedEmployee.setNilai(Double.parseDouble(tfnilai.getText()));
+        selectedEmployee.setDimensi(tfdimensi.getText());
+
+        updateEmployee(selectedEmployee);
+        clearFields();
+        showSuccessAlert("Employee data updated successfully!");
+        refreshTable();
     }
 
     // FNC
@@ -294,13 +396,11 @@ public class Paket implements Initializable {
             // Persiapkan pernyataan SQL untuk update
             String sql = "UPDATE Package SET Nama_karyawan = ?, Posisi_karyawan = ?, Gaji_karyawan = ?, Tanggal_perekrutan = ? WHERE Package_ID = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, Package.getNama());
-                preparedStatement.setString(2, Package.getPosisi());
-                preparedStatement.setInt(3, Package.getGaji());
-                preparedStatement.setString(4, Package.getTanggal_perekrutan());
+                preparedStatement.setInt(1, Package.getID());
+                preparedStatement.setString(2, Package.getDeskripsi());
+                preparedStatement.setDouble(3, Package.getNilai());
+                preparedStatement.setString(4, Package.getDimensi());
                 preparedStatement.setInt(5, Package.getID());
-
-                // Eksekusi pernyataan
                 int rowsAffected = preparedStatement.executeUpdate();
 
                 // Commit the changes to the database
@@ -314,6 +414,11 @@ public class Paket implements Initializable {
             // Handle the exception
             showErrorAlert("Error updating employee data in the database: " + e.getMessage());
         }
+    }
+
+    private void refreshTable() {
+    getList(); 
+    tvpaket.setItems(listTemp); 
     }
 
     private void showWarning(String title, String content) {

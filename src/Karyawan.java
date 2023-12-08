@@ -136,6 +136,9 @@ public class Karyawan implements Initializable { // implements initia
     private MenuItem Menu_Customer;
 
     @FXML
+    private MenuItem Menu_Customer1;
+
+    @FXML
     private MenuItem Menu_Employee;
 
     @FXML
@@ -161,6 +164,9 @@ public class Karyawan implements Initializable { // implements initia
 
     @FXML
     private TextField Posisi_Field;
+
+    @FXML
+    private MenuItem Invoice;
 
     @FXML
     private Label Posisi_Text;
@@ -291,6 +297,32 @@ public class Karyawan implements Initializable { // implements initia
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void Switch_Payment(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Pembayaran.fxml"));
+        Parent root = loader.load();
+
+        // Menggunakan MenuItem untuk mendapatkan Stage
+        Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);  
+        stage.show();
+    }
+
+    @FXML
+    void Switch_Invoice(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Invoice.fxml"));
+        Parent root = loader.load();
+
+        // Menggunakan MenuItem untuk mendapatkan Stage
+        Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);  
         stage.show();
     }
 

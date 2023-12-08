@@ -149,6 +149,9 @@ public class Customer implements Initializable{
     private Label Label_NoHP;
 
     @FXML
+    private MenuItem Paket;
+
+    @FXML
     private Label Label_Search;
 
     @FXML
@@ -272,6 +275,19 @@ public class Customer implements Initializable{
     }
 
     @FXML
+    void Switch_Paket(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("Paket.fxml"));
+        Parent root = loader.load();
+
+        // Menggunakan MenuItem untuk mendapatkan Stage
+        Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     void Switch_Employee(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Karyawan.fxml"));
         root = loader.load();
@@ -284,7 +300,7 @@ public class Customer implements Initializable{
 
     @FXML
     void Switch_Shipment(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Karyawan.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Shipment.fxml"));
         Parent root = loader.load();
 
         // Menggunakan MenuItem untuk mendapatkan Stage
