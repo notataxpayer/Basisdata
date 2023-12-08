@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar fx:id="mboutlet">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="apoutlet" prefHeight="376.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="lbljudul" layoutX="27.0" layoutY="22.0" text="OUTLET">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblid" layoutX="27.0" layoutY="71.0" text="ID">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblnama" layoutX="27.0" layoutY="122.0" text="Nama">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbllokasi" layoutX="27.0" layoutY="173.0" text="Lokasi">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblkontak" layoutX="27.0" layoutY="226.0" text="Kontak">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfid" layoutX="127.0" layoutY="72.0" />
+            <TextField fx:id="tfnama" layoutX="128.0" layoutY="123.0" />
+            <TextField fx:id="tflokasi" layoutX="129.0" layoutY="174.0" />
+            <TextField fx:id="tfkontak" layoutX="128.0" layoutY="227.0" />
+            <Label fx:id="lblsearch" layoutX="395.0" layoutY="48.0" text="Search">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnfind" layoutX="594.0" layoutY="45.0" mnemonicParsing="false" text="Find" />
+            <TextField fx:id="tfsearch" layoutX="448.0" layoutY="44.0" prefHeight="26.0" prefWidth="132.0" />
+            <TableView fx:id="tvoutlet" layoutX="335.0" layoutY="109.0" prefHeight="200.0" prefWidth="299.0">
+              <columns>
+                <TableColumn fx:id="tcid" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="tcnama" prefWidth="75.0" text="Nama" />
+                  <TableColumn fx:id="tclokasi" prefWidth="75.0" text="Lokasi" />
+                  <TableColumn fx:id="tckontak" prefWidth="75.0" text="Kontak" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnadd" layoutX="397.0" layoutY="316.0" mnemonicParsing="false" text="Add" />
+            <Button fx:id="btndelete" layoutX="538.0" layoutY="316.0" mnemonicParsing="false" text="Delete" />
+            <Button fx:id="btnupdate" layoutX="459.0" layoutY="316.0" mnemonicParsing="false" text="Update" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

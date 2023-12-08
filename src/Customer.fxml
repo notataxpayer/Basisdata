@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer">
+   <children>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="Employee" mnemonicParsing="false" onAction="#Switch_Employee" text="Employee" />
+                  <MenuItem fx:id="Shipment" mnemonicParsing="false" onAction="#Switch_Shipment" text="Shipment" />
+                  <MenuItem fx:id="Customer" mnemonicParsing="false" onAction="#Switch_Customer" text="Customer" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="Login" mnemonicParsing="false" onAction="#Swtich_Login" text="Logout" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="26.0" layoutY="15.0" prefHeight="35.0" prefWidth="111.0" text="Customer">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Field_ID" layoutX="129.0" layoutY="83.0" />
+            <TextField fx:id="Field_Alamat" layoutX="129.0" layoutY="181.0" />
+            <TextField fx:id="Field_Nama" layoutX="129.0" layoutY="135.0" />
+            <Label fx:id="Label_ID" layoutX="31.0" layoutY="82.0" text="ID">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Label_Nama" layoutX="27.0" layoutY="134.0" text="Nama">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Label_Alamat" layoutX="25.0" layoutY="180.0" text="Alamat">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="Add_Button" layoutX="450.0" layoutY="321.0" mnemonicParsing="false" onAction="#Add_Btn" text="Add" />
+            <Button fx:id="Update_Button" layoutX="497.0" layoutY="321.0" mnemonicParsing="false" onAction="#Update_Btn" text="Update" />
+            <Button fx:id="Delete_Button" layoutX="562.0" layoutY="321.0" mnemonicParsing="false" onAction="#Delete_Btn" text="Delete" />
+            <TextField fx:id="Field_NoHP" layoutX="129.0" layoutY="224.0" />
+            <Label fx:id="Label_NoHP" layoutX="25.0" layoutY="223.0" text="Nomor HP">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Field_Email" layoutX="129.0" layoutY="268.0" />
+            <Label fx:id="Label_Email" layoutX="25.0" layoutY="267.0" text="Email">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TableView fx:id="Cust_Table" layoutX="353.0" layoutY="85.0" prefHeight="217.0" prefWidth="469.0">
+               <columns>
+                  <TableColumn fx:id="Column_ID" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="Column_Nama" prefWidth="94.0" text="Nama" />
+                  <TableColumn fx:id="Column_Alamat" prefWidth="69.0" text="Alamat" />
+                  <TableColumn fx:id="Column_NoHP" prefWidth="106.0" text="No_HP" />
+                  <TableColumn fx:id="Column_Email" prefWidth="124.0" text="Email" />
+               </columns>
+            </TableView>
+            <Label fx:id="Label_Search" layoutX="338.0" layoutY="15.0" prefHeight="35.0" prefWidth="46.0" text="Search">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Field_Search" layoutX="400.0" layoutY="20.0" />
+            <Button fx:id="Find_Button" layoutX="561.0" layoutY="20.0" mnemonicParsing="false" onAction="#Find_Btn" text="Find" />
+            <Button fx:id="Refresh_Button" layoutX="613.0" layoutY="20.0" mnemonicParsing="false" onAction="#Refresh_Btn" text="Refresh" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

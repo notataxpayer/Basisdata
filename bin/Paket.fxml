@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Paket">
+   <children>
+      <MenuBar fx:id="mbpaket">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="appaket" prefHeight="408.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="lblid" layoutX="48.0" layoutY="75.0" text="ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbljudul" layoutX="96.0" layoutY="20.0" text="DATA PAKET">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbldimensi" layoutX="51.0" layoutY="197.0" text="Dimensi">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblnilai" layoutX="48.0" layoutY="154.0" text="Nilai">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbldeskripsi" layoutX="48.0" layoutY="115.0" text="Deskripsi">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblsearch" layoutX="355.0" layoutY="29.0" text="Search" />
+            <TextField fx:id="tfid" layoutX="131.0" layoutY="73.0" />
+            <TextField fx:id="tfdeskripsi" layoutX="131.0" layoutY="112.0" />
+            <TextField fx:id="tfnilai" layoutX="131.0" layoutY="151.0" />
+            <TextField fx:id="tfdimensi" layoutX="131.0" layoutY="194.0" />
+            <TextField fx:id="tfsearch" layoutX="418.0" layoutY="24.0" prefHeight="26.0" prefWidth="135.0" />
+            <Button fx:id="btnfind" layoutX="568.0" layoutY="25.0" mnemonicParsing="false" onAction="#Find_Btn" text="Find" />
+            <Button fx:id="btndelete" layoutX="517.0" layoutY="309.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+            <Button fx:id="btnupdate" layoutX="447.0" layoutY="309.0" mnemonicParsing="false" onAction="#Update" text="Update" />
+            <Button fx:id="btnadd" layoutX="393.0" layoutY="309.0" mnemonicParsing="false" onAction="#Add" text="Add" />
+            <TableView fx:id="tvpaket" layoutX="355.0" layoutY="94.0" prefHeight="200.0" prefWidth="393.0">
+              <columns>
+                <TableColumn fx:id="tcid" prefWidth="66.0" text="ID" />
+                <TableColumn fx:id="tcdeskripsi" prefWidth="122.0" text="Deskripsi" />
+                  <TableColumn fx:id="tcnilai" prefWidth="88.0" text="Nilai" />
+                  <TableColumn fx:id="tcdimensi" prefWidth="115.0" text="Dimensi" />
+              </columns>
+            </TableView>
+            <Button fx:id="Refresh" layoutX="629.0" layoutY="25.0" mnemonicParsing="false" onAction="#Refresh_Btn" text="Find" />
+         </children>
+      </AnchorPane>
+      <TextField />
+   </children>
+</VBox>

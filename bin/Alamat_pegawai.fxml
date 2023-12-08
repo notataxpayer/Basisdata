@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="334.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Alamat_pegawai">
+   <children>
+      <MenuBar fx:id="mbalamatpegawai">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="apalamatpegawai" prefHeight="374.0" prefWidth="746.0">
+         <children>
+            <Label fx:id="lbljudul" layoutX="87.0" layoutY="28.0" text="ALAMAT PEGAWAI">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblid" layoutX="72.0" layoutY="94.0" text="ID">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblalamat" layoutX="72.0" layoutY="159.0" text="Alamat">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfid" layoutX="187.0" layoutY="95.0" />
+            <TextField fx:id="tfalamat" layoutX="187.0" layoutY="160.0" />
+            <Label fx:id="lblsearch" layoutX="402.0" layoutY="46.0" text="Search" />
+            <Button fx:id="btnfind" layoutX="579.0" layoutY="43.0" mnemonicParsing="false" onAction="#Find" text="Find" />
+            <Button fx:id="btndelete" layoutX="537.0" layoutY="260.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+            <Button fx:id="btnupdate" layoutX="474.0" layoutY="260.0" mnemonicParsing="false" onAction="#Update" text="Update" />
+            <Button fx:id="btnadd" layoutX="426.0" layoutY="260.0" mnemonicParsing="false" onAction="#Add" text="Add" />
+            <TableView fx:id="tvalamatpegawai" layoutX="393.0" layoutY="80.0" prefHeight="158.0" prefWidth="226.0">
+              <columns>
+                <TableColumn fx:id="tcID" prefWidth="91.19992065429688" text="ID" />
+                <TableColumn fx:id="tcpegawai" prefWidth="135.20001220703125" text="Pegawai" />
+              </columns>
+            </TableView>
+            <TextField fx:id="tfsearch" layoutX="448.0" layoutY="42.0" prefHeight="26.0" prefWidth="118.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
